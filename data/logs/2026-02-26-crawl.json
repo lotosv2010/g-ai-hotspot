@@ -1201,5 +1201,144 @@
     "articlesCount": 0,
     "error": "Request failed with status code 403",
     "timestamp": "2026-02-26T07:08:05.929Z"
+  },
+  {
+    "sourceId": "36kr-ai",
+    "success": false,
+    "articlesCount": 0,
+    "error": "Request failed with status code 404",
+    "timestamp": "2026-02-26T07:53:08.891Z"
+  },
+  {
+    "sourceId": "huxiu-ai",
+    "success": false,
+    "articlesCount": 0,
+    "error": "Request failed with status code 404",
+    "timestamp": "2026-02-26T07:53:09.115Z"
+  },
+  {
+    "sourceId": "jiemian-ai",
+    "success": false,
+    "articlesCount": 0,
+    "error": "Request failed with status code 404",
+    "timestamp": "2026-02-26T07:53:09.435Z"
+  },
+  {
+    "sourceId": "techcrunch-cn",
+    "success": true,
+    "articlesCount": 1,
+    "timestamp": "2026-02-26T07:53:11.645Z"
+  },
+  {
+    "sourceId": "qianwen-news",
+    "success": true,
+    "articlesCount": 0,
+    "timestamp": "2026-02-26T07:53:12.064Z"
+  },
+  {
+    "sourceId": "deepseek-news",
+    "success": true,
+    "articlesCount": 5,
+    "timestamp": "2026-02-26T07:53:12.205Z"
+  },
+  {
+    "sourceId": "tencent-ai",
+    "success": true,
+    "articlesCount": 0,
+    "timestamp": "2026-02-26T07:53:12.433Z"
+  },
+  {
+    "sourceId": "bytedance-ai",
+    "success": true,
+    "articlesCount": 0,
+    "timestamp": "2026-02-26T07:53:13.252Z"
+  },
+  {
+    "sourceId": "kimi-news",
+    "success": true,
+    "articlesCount": 2,
+    "timestamp": "2026-02-26T07:53:13.609Z"
+  },
+  {
+    "sourceId": "leiphone-ai",
+    "success": true,
+    "articlesCount": 1,
+    "timestamp": "2026-02-26T07:53:13.885Z"
+  },
+  {
+    "sourceId": "anthropic-blog",
+    "success": true,
+    "articlesCount": 1,
+    "timestamp": "2026-02-26T07:53:14.694Z"
+  },
+  {
+    "sourceId": "google-ai",
+    "success": true,
+    "articlesCount": 0,
+    "timestamp": "2026-02-26T07:53:16.245Z"
+  },
+  {
+    "sourceId": "microsoft-ai",
+    "success": true,
+    "articlesCount": 6,
+    "timestamp": "2026-02-26T07:53:18.048Z"
+  },
+  {
+    "sourceId": "x-ai",
+    "success": false,
+    "articlesCount": 0,
+    "error": "",
+    "timestamp": "2026-02-26T07:53:18.381Z"
+  },
+  {
+    "sourceId": "techcrunch-ai",
+    "success": true,
+    "articlesCount": 1,
+    "timestamp": "2026-02-26T07:53:19.244Z"
+  },
+  {
+    "sourceId": "theverge-ai",
+    "success": true,
+    "articlesCount": 4,
+    "timestamp": "2026-02-26T07:53:19.965Z"
+  },
+  {
+    "sourceId": "venturebeat-ai",
+    "success": false,
+    "articlesCount": 0,
+    "error": "Request failed with status code 429",
+    "timestamp": "2026-02-26T07:53:20.409Z"
+  },
+  {
+    "sourceId": "mit-ai",
+    "success": true,
+    "articlesCount": 15,
+    "timestamp": "2026-02-26T07:53:20.886Z"
+  },
+  {
+    "sourceId": "wired-ai",
+    "success": true,
+    "articlesCount": 20,
+    "timestamp": "2026-02-26T07:53:21.789Z"
+  },
+  {
+    "sourceId": "arxiv-ai",
+    "success": true,
+    "articlesCount": 0,
+    "timestamp": "2026-02-26T07:53:22.474Z"
+  },
+  {
+    "sourceId": "ai-news",
+    "success": false,
+    "articlesCount": 0,
+    "error": "Request failed with status code 403",
+    "timestamp": "2026-02-26T07:53:24.151Z"
+  },
+  {
+    "sourceId": "openai-twitter",
+    "success": false,
+    "articlesCount": 0,
+    "error": "Request failed with status code 403",
+    "timestamp": "2026-02-26T07:53:24.753Z"
   }
 ]

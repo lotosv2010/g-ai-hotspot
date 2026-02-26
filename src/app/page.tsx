@@ -77,14 +77,25 @@ export default function Home() {
   );
 
   return (
-    <Layout style={{ minHeight: '100vh', background: '#f5f5f5' }}>
+    <Layout style={{ minHeight: '100vh', background: 'transparent' }}>
       <AppHeader onRefresh={handleRefresh} refreshing={crawling} />
 
-      <Layout.Content style={{ padding: '24px', maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
-        <Layout style={{ background: '#f5f5f5' }}>
+      <Layout.Content style={{ 
+        padding: '32px 24px', 
+        maxWidth: '1440px', 
+        margin: '0 auto', 
+        width: '100%',
+        background: 'transparent'
+      }}>
+        <Layout style={{ background: 'transparent', gap: '24px' }}>
           <Layout.Sider
-            width={280}
-            style={{ marginRight: '24px', height: 'fit-content', overflow: 'visible', background: 'transparent' }}
+            width={300}
+            style={{ 
+              height: 'fit-content', 
+              overflow: 'visible', 
+              background: 'transparent',
+              flexShrink: 0
+            }}
           >
             <DateSidebar
               dateTree={dateTree}
@@ -97,24 +108,56 @@ export default function Home() {
             />
           </Layout.Sider>
 
-          <Layout.Content style={{ flex: 1, overflow: 'visible' }}>
+          <Layout.Content style={{ flex: 1, overflow: 'visible', minWidth: 0 }}>
             {loading ? (
               <LoadingState />
             ) : selectedArticles.length === 0 ? (
               <EmptyState />
             ) : (
               <div>
-                <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div style={{ 
+                  marginBottom: '32px', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '16px',
+                  padding: '20px 24px',
+                  background: 'rgba(255, 255, 255, 0.98)',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '16px',
+                  boxShadow: '0 2px 12px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid rgba(230, 230, 230, 0.8)'
+                }}>
                   <Avatar
-                    size={40}
+                    size={48}
                     style={{
                       background: 'linear-gradient(135deg, #10a37f 0%, #0d8a6a 100%)',
+                      boxShadow: '0 4px 12px rgba(16, 163, 127, 0.3)',
                     }}
-                    icon={<CalendarOutlined style={{ color: '#fff' }} />}
+                    icon={<CalendarOutlined style={{ color: '#fff', fontSize: '20px' }} />}
                   />
                   <div>
-                    <Title level={3} style={{ margin: 0, color: '#262626' }}>{getGroupDisplayName(selectedDate)}</Title>
-                    <Text type="secondary" style={{ fontSize: '14px' }}>共 {selectedArticles.length} 条资讯</Text>
+                    <Title 
+                      level={3} 
+                      style={{ 
+                        margin: 0, 
+                        color: '#10a37f',
+                        fontSize: '22px',
+                        fontWeight: 600,
+                        letterSpacing: '-0.5px'
+                      }}
+                    >
+                      {getGroupDisplayName(selectedDate)}
+                    </Title>
+                    <Text 
+                      type="secondary" 
+                      style={{ 
+                        fontSize: '14px',
+                        fontWeight: 500,
+                        color: '#5a5a5a'
+                      }}
+                    >
+                      共 {selectedArticles.length} 条资讯
+                    </Text>
                   </div>
                 </div>
 

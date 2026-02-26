@@ -15,7 +15,7 @@ export function ArticleList({ articles }: ArticleListProps) {
   }
 
   return (
-    <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+    <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
       {articles.map((article, index) => (
         <ArticleCard key={article.id || index} article={article} />
       ))}

@@ -10,47 +10,53 @@ interface AppHeaderProps {
 const topMenuItems: MenuProps['items'] = [
   {
     key: 'recommend',
-    icon: <ThunderboltOutlined />,
-    label: <span className="font-medium">推荐</span>,
+    icon: <ThunderboltOutlined style={{ fontSize: '16px' }} />,
+    label: <span style={{ fontWeight: 600, fontSize: '15px' }}>推荐</span>,
   },
   {
     key: 'latest',
     icon: null,
-    label: '最新',
+    label: <span style={{ fontSize: '15px' }}>最新</span>,
   },
   {
     key: 'hot',
     icon: null,
-    label: '热榜',
+    label: <span style={{ fontSize: '15px' }}>热榜</span>,
   },
 ];
 
 export function AppHeader({ onRefresh, refreshing }: AppHeaderProps) {
   return (
     <div style={{
-      background: '#fff',
+      background: 'rgba(255, 255, 255, 0.95)',
+      backdropFilter: 'blur(12px)',
+      WebkitBackdropFilter: 'blur(12px)',
       padding: '0 24px',
-      height: '64px',
-      borderBottom: '1px solid #e8e8e8',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+      height: '70px',
+      borderBottom: '1px solid rgba(220, 220, 220, 0.8)',
+      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
       display: 'flex',
-      alignItems: 'center'
+      alignItems: 'center',
+      position: 'sticky',
+      top: 0,
+      zIndex: 1000
     }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', maxWidth: '1400px', margin: '0 auto' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '48px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', maxWidth: '1440px', margin: '0 auto' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '56px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
             <Avatar
-              size={40}
+              size={44}
               style={{
                 background: 'linear-gradient(135deg, #10a37f 0%, #0d8a6a 100%)',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                boxShadow: '0 4px 12px rgba(16, 163, 127, 0.25)',
               }}
-              icon={<ThunderboltOutlined style={{ fontSize: '20px', color: '#fff' }} />}
+              icon={<ThunderboltOutlined style={{ fontSize: '22px', color: '#fff' }} />}
             />
             <div>
-              <div style={{ fontSize: '20px', fontWeight: 700, color: '#10a37f', margin: 0 }}>AI 热点</div>
+              <div style={{ fontSize: '22px', fontWeight: 700, color: '#10a37f', margin: 0, letterSpacing: '-0.5px' }}>AI 热点</div>
             </div>
           </div>
           <Menu
@@ -61,7 +67,8 @@ export function AppHeader({ onRefresh, refreshing }: AppHeaderProps) {
               flex: 1,
               border: 'none',
               minWidth: 200,
-              background: 'transparent'
+              background: 'transparent',
+              fontSize: '15px'
             }}
           />
         </div>
@@ -74,20 +81,31 @@ export function AppHeader({ onRefresh, refreshing }: AppHeaderProps) {
             style={{
               background: 'linear-gradient(135deg, #10a37f 0%, #0d8a6a 100%)',
               border: 'none',
-              borderRadius: '8px',
-              height: 40,
-              fontWeight: 500
+              borderRadius: '10px',
+              height: 42,
+              fontWeight: 600,
+              fontSize: '15px',
+              boxShadow: '0 2px 8px rgba(16, 163, 127, 0.25)',
+              minWidth: '90px'
             }}
           >
             {refreshing ? '刷新中' : '刷新'}
           </Button>
           <Avatar
-            size={36}
+            size={40}
             style={{
               background: 'linear-gradient(135deg, #722ed1 0%, #531dab 100%)',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              boxShadow: '0 2px 8px rgba(114, 46, 209, 0.25)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '16px',
+              fontWeight: 600
             }}
-          />
+          >
+            U
+          </Avatar>
         </Space>
       </div>
     </div>

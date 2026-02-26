@@ -23,20 +23,34 @@ export function DateSidebar({
 }: DateSidebarProps) {
   return (
     <div style={{
-      background: '#fff',
-      borderRadius: '12px',
-      boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+      background: 'rgba(255, 255, 255, 0.98)',
+      backdropFilter: 'blur(12px)',
+      WebkitBackdropFilter: 'blur(12px)',
+      borderRadius: '16px',
+      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+      border: '1px solid rgba(230, 230, 230, 0.8)',
       height: 'fit-content',
       overflow: 'visible'
     }}>
-      <div style={{ padding: '16px 20px', borderBottom: '1px solid #f0f0f0' }}>
-        <div style={{ fontSize: '16px', fontWeight: 600, color: '#262626', margin: 0 }}>
+      <div style={{ 
+        padding: '18px 24px', 
+        borderBottom: '1px solid rgba(230, 230, 230, 0.8)',
+        background: 'linear-gradient(135deg, rgba(16, 163, 127, 0.08) 0%, rgba(13, 138, 106, 0.04) 100%)',
+        borderRadius: '16px 16px 0 0'
+      }}>
+        <div style={{ fontSize: '18px', fontWeight: 700, color: '#262626', margin: 0, letterSpacing: '-0.3px' }}>
           📅 日期归档
         </div>
       </div>
-      <div style={{ maxHeight: 'calc(100vh - 200px)', overflowY: 'auto', overflowX: 'hidden', padding: '12px' }}>
+      <div style={{ 
+        maxHeight: 'calc(100vh - 180px)', 
+        overflowY: 'auto', 
+        overflowX: 'hidden', 
+        padding: '16px 12px',
+        scrollbarWidth: 'thin'
+      }}>
         {dateTree.map(({ year, months }) => (
-          <div key={year} style={{ marginBottom: '8px' }}>
+          <div key={year} style={{ marginBottom: '6px' }}>
             <Button
               type="text"
               onClick={() => onToggleYear(year)}
@@ -46,18 +60,25 @@ export function DateSidebar({
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 height: 'auto',
-                padding: '12px 16px',
-                borderRadius: '8px',
-                transition: 'all 0.2s',
+                padding: '13px 16px',
+                borderRadius: '10px',
+                transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                fontWeight: 600
               }}
-              onMouseEnter={(e) => e.currentTarget.style.background = '#fafafa'}
-              onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(16, 163, 127, 0.08)';
+                e.currentTarget.style.transform = 'translateX(2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.transform = 'translateX(0)';
+              }}
             >
-              <span style={{ fontSize: '14px', fontWeight: 600, color: '#262626' }}>{year}年</span>
-              {expandedYears.has(year) ? <DownOutlined style={{ color: '#bfbfbf' }} /> : <RightOutlined style={{ color: '#bfbfbf' }} />}
+              <span style={{ fontSize: '15px', fontWeight: 700, color: '#1a1a1a' }}>{year}年</span>
+              {expandedYears.has(year) ? <DownOutlined style={{ color: '#10a37f', fontSize: '12px' }} /> : <RightOutlined style={{ color: '#bfbfbf', fontSize: '12px' }} />}
             </Button>
             {expandedYears.has(year) && months.map(({ month, days }) => (
-              <div key={`${year}-${month}`} style={{ marginLeft: '8px', marginBottom: '4px' }}>
+              <div key={`${year}-${month}`} style={{ marginLeft: '6px', marginBottom: '4px' }}>
                 <Button
                   type="text"
                   onClick={() => onToggleMonth(year, month)}
@@ -67,15 +88,21 @@ export function DateSidebar({
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     height: 'auto',
-                    padding: '10px 16px',
-                    borderRadius: '6px',
-                    transition: 'all 0.2s',
+                    padding: '11px 16px',
+                    borderRadius: '8px',
+                    transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = '#fafafa'}
-                  onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(16, 163, 127, 0.06)';
+                    e.currentTarget.style.transform = 'translateX(2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.transform = 'translateX(0)';
+                  }}
                 >
-                  <span style={{ fontSize: '13px', fontWeight: 500, color: '#595959' }}>{month}月</span>
-                  {expandedMonths.has(`${year}-${month}`) ? <DownOutlined style={{ color: '#bfbfbf', fontSize: '12px' }} /> : <RightOutlined style={{ color: '#bfbfbf', fontSize: '12px' }} />}
+                  <span style={{ fontSize: '14px', fontWeight: 600, color: '#3a3a3a' }}>{month}月</span>
+                  {expandedMonths.has(`${year}-${month}`) ? <DownOutlined style={{ color: '#10a37f', fontSize: '11px' }} /> : <RightOutlined style={{ color: '#bfbfbf', fontSize: '11px' }} />}
                 </Button>
                 {expandedMonths.has(`${year}-${month}`) && days.map(({ day, dateStr, count }) => (
                   <Button
@@ -88,35 +115,50 @@ export function DateSidebar({
                       alignItems: 'center',
                       justifyContent: 'space-between',
                       height: 'auto',
-                      padding: '10px 20px',
-                      borderRadius: '6px',
-                      marginLeft: '8px',
-                      transition: 'all 0.2s',
-                      background: selectedDate === dateStr ? 'linear-gradient(135deg, #10a37f 0%, #0d8a6a 100%)' : 'transparent',
+                      padding: '11px 18px',
+                      borderRadius: '8px',
+                      marginLeft: '6px',
+                      transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                      background: selectedDate === dateStr 
+                        ? 'linear-gradient(135deg, #10a37f 0%, #0d8a6a 100%)' 
+                        : 'transparent',
                       border: 'none',
+                      boxShadow: selectedDate === dateStr 
+                        ? '0 4px 12px rgba(16, 163, 127, 0.3)' 
+                        : 'none',
                     }}
                     onMouseEnter={(e) => {
-                      if (selectedDate !== dateStr) e.currentTarget.style.background = '#fafafa';
+                      if (selectedDate !== dateStr) {
+                        e.currentTarget.style.background = 'rgba(240, 240, 240, 0.6)';
+                        e.currentTarget.style.transform = 'translateX(2px)';
+                      }
                     }}
                     onMouseLeave={(e) => {
-                      if (selectedDate !== dateStr) e.currentTarget.style.background = 'transparent';
+                      if (selectedDate !== dateStr) {
+                        e.currentTarget.style.background = 'transparent';
+                        e.currentTarget.style.transform = 'translateX(0)';
+                      }
                     }}
                   >
                     <span style={{
-                      fontSize: '13px',
-                      fontWeight: 500,
-                      color: selectedDate === dateStr ? '#fff' : '#595959'
+                      fontSize: '14px',
+                      fontWeight: 700,
+                      color: selectedDate === dateStr ? '#ffffff' : '#1a1a1a',
+                      textShadow: selectedDate === dateStr ? '0 1px 2px rgba(0, 0, 0, 0.2)' : 'none'
                     }}>{day}日</span>
                     <span style={{
-                      backgroundColor: selectedDate === dateStr ? 'rgba(255,255,255,0.2)' : '#f0f0f0',
+                      backgroundColor: selectedDate === dateStr 
+                        ? 'rgba(255,255,255,0.25)' 
+                        : 'rgba(240, 240, 240, 0.8)',
                       color: selectedDate === dateStr ? '#fff' : '#8c8c8c',
-                      padding: '2px 8px',
-                      borderRadius: '10px',
-                      fontSize: '11px',
-                      fontWeight: 500,
-                      minWidth: '20px',
+                      padding: '3px 10px',
+                      borderRadius: '12px',
+                      fontSize: '12px',
+                      fontWeight: 600,
+                      minWidth: '24px',
                       textAlign: 'center',
-                      display: 'inline-block'
+                      display: 'inline-block',
+                      transition: 'all 0.2s'
                     }}>{count}</span>
                   </Button>
                 ))}
